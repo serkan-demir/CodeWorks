@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectEuler
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Euler Problem #002
+			//Finds sum of the even members of the fibonacci series with below 4 million terms
+            ulong sum = 2;
+            ulong forsta = 1;
+            ulong andra = 2;
+            ulong actual = 3;
+
+            //for (ulong term = 3; term <= 4000000; term++)
+            while (actual <= 4000000)
+            {
+                actual = forsta + andra;
+                if (actual % 2 == 0)
+                    sum += actual;
+
+                forsta = andra;
+                andra = actual;
+            }
+            Console.WriteLine(sum);
+            Console.ReadLine();
+        }
+    }
+}
