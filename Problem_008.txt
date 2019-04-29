@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectEuler
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Project Euler Problem #008
+            //Finds largest product in a series (adjacent 13 digit in a 1000-digit seri) 
+            string thousandDigit = "";
+            long tempMultiply = 1;
+            long maxMultiply = 0;
+            string[] lines = System.IO.File.ReadAllLines(@"D:\ProjectEuler\Problem_008_Array.ini");
+            foreach (string line in lines)
+            {
+                thousandDigit += line;
+            }
+
+            for (int i = 0; i < 987; i++)
+            {
+                for (int j = 0; j < 13; j++)
+                {
+                    //Extract 48 since array returns ASCII value
+                    tempMultiply *= Convert.ToInt64(thousandDigit[i + j] - 48);
+                }
+
+                if (tempMultiply > maxMultiply)
+                    maxMultiply = tempMultiply;
+                tempMultiply = 1;
+            }
+
+            Console.WriteLine(maxMultiply);
+            Console.ReadLine();
+        }
+
+    }
+}

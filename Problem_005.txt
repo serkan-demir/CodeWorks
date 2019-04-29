@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectEuler
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Project Euler Problem #005
+            //Finds the smallest number that divisible by the first twenty numbers at the same time
+            ulong divisibleWithFirstTwenty = 20;
+            uint currentDiviser = 1;
+
+            while(divisibleWithFirstTwenty > 0)
+            {
+                for (uint i = 20; i > 1; i--)
+                {
+                    currentDiviser = i;
+                    if (divisibleWithFirstTwenty % i != 0)
+                        break;
+                }
+                if (currentDiviser == 2)
+                {
+                    Console.WriteLine(divisibleWithFirstTwenty);
+                    Console.ReadLine();
+                    break;
+                }
+                else
+                    divisibleWithFirstTwenty++;
+            }
+
+        }
+
+    }
+}

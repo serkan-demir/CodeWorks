@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectEuler
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Project Euler Problem #010
+            //Finds sum of all primes below 2-billion 
+            ulong naturalNumber = 6;
+            ulong sumOfAllPrimes = 10;
+
+            while (naturalNumber < 2000000)
+            {
+                if (isPrime(naturalNumber))
+                    sumOfAllPrimes += naturalNumber;
+
+                naturalNumber++;
+            }
+
+            Console.WriteLine(sumOfAllPrimes);
+            Console.ReadLine();
+        }
+
+        public static bool isPrime(ulong theNumber)
+        {
+            //If the number is not a prime number, it should be written as N = a * b
+            // a <= SQRT(N) <= b. So, applying prime test until the SQRT (N) is fairly enough
+            for (ulong i = 2; i <= Convert.ToUInt64(Math.Sqrt(theNumber)); i++)
+                if (theNumber % i == 0)
+                    return false;
+            return true;
+        }
+    }
+}

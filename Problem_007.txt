@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectEuler
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Project Euler Problem #007
+            //Finds 10001st prime number 
+            ulong primeOrder = 1;
+            ulong naturalNumber = 3;
+
+            while (primeOrder < 10001)
+            {
+                if (isPrime(naturalNumber))
+                    primeOrder++;
+                naturalNumber++;
+            }
+
+            Console.WriteLine(primeOrder);
+            Console.WriteLine(naturalNumber-1);
+            Console.ReadLine();
+        }
+
+        public static bool isPrime(ulong theNumber)
+        {
+            for (ulong i = 2; i < theNumber; i++)
+                if (theNumber % i == 0)
+                    return false;
+            return true;
+        }
+
+    }
+}

@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectEuler
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Project Euler Problem #006
+            //Finds sum of the square differences of the first 100 numbers
+            ulong sumSquareDifferenceFirstHundredNumbers = 0;
+
+            // (a+b+c)^2 - (a^2 + b^2 + c^2) = 2 * (ab + ac + bc)
+
+            for (uint i = 1; i <= 100; i++)
+                for (uint j = i + 1; j <= 100; j++)
+                    sumSquareDifferenceFirstHundredNumbers += (i * j);
+
+            Console.WriteLine(sumSquareDifferenceFirstHundredNumbers * 2);
+            Console.ReadLine();
+        }
+
+    }
+}

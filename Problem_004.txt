@@ -1,0 +1,71 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectEuler
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Project Euler Problem #004
+            //Finds the largest palindromic number formed by two 3-digits number
+            ulong largestPalindromic = 10000;
+            ulong num1 = 999;
+            ulong num2 = 999;
+            ulong multiplyValue;
+
+            for (ulong i = 999; i >= 100; i--)
+            {
+                for (ulong j = 999; j >= 100; j--)
+                {
+                    multiplyValue = i * j;
+                    if (Program.isPalindromic(multiplyValue))
+                    {
+                        if (multiplyValue > largestPalindromic)
+                        {
+                            largestPalindromic = multiplyValue;
+                            num1 = i;
+                            num2 = j;
+                        }
+                    }
+                }
+            }
+            Console.WriteLine(largestPalindromic);
+            Console.WriteLine(num1);
+            Console.WriteLine(num2);
+            Console.ReadLine();
+
+        }
+
+        static bool isPalindromic(ulong multiplication)
+        {
+            uint numOfDigit = 5;
+            char[] digit5;
+            char[] digit6;
+
+            if (multiplication > 100000)
+                numOfDigit = 6;
+
+            if (numOfDigit == 5)
+            {
+                digit5 = multiplication.ToString().ToCharArray();
+                if((digit5[4] == digit5[0]) && (digit5[3] == digit5[1]))
+                    return true;
+                else
+                    return false;
+            }
+            else if (numOfDigit == 6)
+            {
+                digit6 = multiplication.ToString().ToCharArray();
+                if((digit6[5] == digit6[0]) && (digit6[4] == digit6[1]) && (digit6[3] == digit6[2]))
+                    return true;
+                else
+                    return false;
+            }
+            return false;
+        }
+    }
+}
