@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjectEuler
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Project Euler Problem #003
+            //Finds the largest prime factor of the number 600851475143
+            ulong number = 600851475143;
+            ulong largestPrimeFactor = 1;
+            ulong divident = 2;
+
+            while (number > 1)
+            {
+                if (number % divident == 0)
+                {
+                    largestPrimeFactor = divident;
+                    number /= divident;
+                }
+                divident++;
+            }
+            Console.WriteLine(largestPrimeFactor);
+            Console.ReadLine();
+        }
+    }
+}
